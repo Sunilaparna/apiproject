@@ -1,5 +1,11 @@
 import Carousel from 'react-bootstrap/Carousel';
 
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import carousal1 from './images/carousal-1.png';
+import carousal2 from './images/carousal-2.jpg';
+
+
 
 function Home() {
  
@@ -9,7 +15,7 @@ function Home() {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src="https://images.pexels.com/photos/2983102/pexels-photo-2983102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 "
+        src={carousal1}
         alt="First slide"
         height='600px'
 
@@ -22,7 +28,7 @@ function Home() {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src=" https://images.pexels.com/photos/2983102/pexels-photo-2983102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        src={carousal2}
         alt="Second slide"
         height='600px'
       />
@@ -47,6 +53,30 @@ function Home() {
       </Carousel.Caption>
     </Carousel.Item>
   </Carousel>
+
+
+  <Tabs
+      defaultActiveKey="profile"
+      id="justify-tab-example"
+      className="mb-3"
+      justify
+    >
+      <Tab eventKey="Burgers" title=" Burgers">
+        Tab content for Home
+      </Tab>
+      <Tab eventKey="Pizza" title="Pizza">
+        Tab content for Profile
+      </Tab>
+      <Tab eventKey="Salads" title="Salads">
+        Tab content for Loooonger Tab
+      </Tab>
+      <Tab eventKey="Sides" title="Sides">
+        Tab content for Contact
+      </Tab>
+    </Tabs>
+
+  
+
 
 
   </>
