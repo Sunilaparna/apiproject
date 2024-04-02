@@ -1,15 +1,32 @@
 import Carousel from 'react-bootstrap/Carousel';
-
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import carousal1 from './images/carousal-1.png';
 import carousal2 from './images/carousal-2.jpg';
+import {useState,useEffect} from 'react';
+import axios from 'axios';
+import { Rating } from '@mui/material';
+import { Row } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+
 
 const baseURL = "https://j-sylvia.github.io/api/db.json";
 
+function Home({data}) {
+  const [item, setItem] = useState([]);
+ 
+  useEffect(() => {
+    
+    axios.get(baseURL)
+      .then(res => {
+        setItem(res.data);
+        
+      })
+      .catch(err => console.log(err));
+  }, []);
 
-function Home() {
- const [item, setItem] = useState([]);
+  const filterItem = item.filter((item) => item.category === 'burgers');
+
   return(
     <>
     <Carousel data-bs-theme="dark">
@@ -55,7 +72,6 @@ function Home() {
     </Carousel.Item>
   </Carousel>
 
-
   <Tabs
       defaultActiveKey="profile"
       id="justify-tab-example"
@@ -63,10 +79,11 @@ function Home() {
       justify
     >
       <Tab eventKey="Burgers" title=" Burgers">
-
-       <Row xs={1} sm={2} md={3} lg={4} className="container g-4" style={{width:'100%',margin:'auto'}}>
-        {item.map((items)=>(
-          <div key={items.id}> 
+      
+      <Row xs={1} sm={2} md={3} lg={4} className="container g-4" style={{width:'100%',margin:'auto'}}>
+        {filterItem.map((items)=>(
+          <div key={items.id}>
+            
       <Card style={{ width: "15rem"}}>
       <Card.Img variant="top" src={items.imgdata} />
       <Card.Body>
@@ -80,10 +97,11 @@ function Home() {
       </div>
        ))}
       </Row> 
-        
+      
       </Tab>
       <Tab eventKey="Pizza" title="Pizza">
-        Tab content for Profile
+        
+        Hi
       </Tab>
       <Tab eventKey="Salads" title="Salads">
         Tab content for Loooonger Tab
