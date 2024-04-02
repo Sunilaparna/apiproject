@@ -71,8 +71,21 @@ function Home() {
           <b> {items.name}</b>
           <Rating value={items.rating} />
           </Col>
-    
         </Row> 
+
+//  <div className="g-4 d-flex">
+//       <Card style={{ width: "15rem"}}>
+//       <Card.Img variant="top" src={items.imgdata} />
+//       <Card.Body>
+//         <Card.Title>{items.name}</Card.Title>
+//         <Card.Text>
+//         <Rating value={items.rating} />
+//         </Card.Text>
+       
+//       </Card.Body>
+//     </Card>
+// </div>
+ 
       </div>
     ))}
       </Tab>
