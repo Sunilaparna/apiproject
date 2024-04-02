@@ -63,31 +63,24 @@ function Home() {
       justify
     >
       <Tab eventKey="Burgers" title=" Burgers">
-        {item.map((items)=>(
-        <div key={items.id}> 
-        <Row className='g-4'>
-          <Col xs={6} md={4} >
-          <Image src={items.imgdata} thumbnail />
-          <b> {items.name}</b>
-          <Rating value={items.rating} />
-          </Col>
-        </Row> 
 
-//  <div className="g-4 d-flex">
-//       <Card style={{ width: "15rem"}}>
-//       <Card.Img variant="top" src={items.imgdata} />
-//       <Card.Body>
-//         <Card.Title>{items.name}</Card.Title>
-//         <Card.Text>
-//         <Rating value={items.rating} />
-//         </Card.Text>
+       <Row xs={1} sm={2} md={3} lg={4} className="container g-4" style={{width:'100%',margin:'auto'}}>
+        {item.map((items)=>(
+          <div key={items.id}> 
+      <Card style={{ width: "15rem"}}>
+      <Card.Img variant="top" src={items.imgdata} />
+      <Card.Body>
+        <Card.Title>{items.name}</Card.Title>
+        <Card.Text>
+        <Rating value={items.rating} />
+        </Card.Text>
        
-//       </Card.Body>
-//     </Card>
-// </div>
- 
+      </Card.Body>
+      </Card>
       </div>
-    ))}
+       ))}
+      </Row> 
+        
       </Tab>
       <Tab eventKey="Pizza" title="Pizza">
         Tab content for Profile
