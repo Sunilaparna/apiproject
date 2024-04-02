@@ -5,10 +5,11 @@ import Tabs from 'react-bootstrap/Tabs';
 import carousal1 from './images/carousal-1.png';
 import carousal2 from './images/carousal-2.jpg';
 
+const baseURL = "https://j-sylvia.github.io/api/db.json";
 
 
 function Home() {
- 
+ const [item, setItem] = useState([]);
   return(
     <>
     <Carousel data-bs-theme="dark">
@@ -62,7 +63,18 @@ function Home() {
       justify
     >
       <Tab eventKey="Burgers" title=" Burgers">
-        Tab content for Home
+        {item.map((items)=>(
+        <div key={items.id}> 
+        <Row className='g-4'>
+          <Col xs={6} md={4} >
+          <Image src={items.imgdata} thumbnail />
+          <b> {items.name}</b>
+          <Rating value={items.rating} />
+          </Col>
+    
+        </Row> 
+      </div>
+    ))}
       </Tab>
       <Tab eventKey="Pizza" title="Pizza">
         Tab content for Profile
